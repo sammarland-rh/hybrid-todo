@@ -2,17 +2,23 @@ const initOptions = {};
 
 var pgp = require('pg-promise')(initOptions);
 
-if (proccess.env.ENV == "OpenShift") {
-    require('dotenv').config({ path: 'openshift.env' });
-} else if (process.env.ENV == "Azure") {
-    require('dotenv').config({ path: 'azure.env' });
-} else {
-    require('dotenv').config({ path: 'local.env' });
-}
-
-require('dotenv').config({
-    path: 'local.env'
-})
+if (!process.env.ENV) {
+    require('dotenv').config({
+      path: 'local.env'
+    });
+  } else if (proccess.env.ENV == "OpenShift") {
+    require('dotenv').config({
+      path: 'openshift.env'
+    });
+  } else if (process.env.ENV == "Azure") {
+    require('dotenv').config({
+      path: 'azure.env'
+    });
+  } else {
+    require('dotenv').config({
+      path: 'local.env'
+    });
+  }
 
 // Database connection details;
 const cn = {
