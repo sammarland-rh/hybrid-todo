@@ -4,19 +4,19 @@ var pgp = require('pg-promise')(initOptions);
 
 if (!process.env.ENV) {
     require('dotenv').config({
-      path: 'local.env'
+      path: 'config/local.env'
     });
   } else if (proccess.env.ENV == "OpenShift") {
     require('dotenv').config({
-      path: 'openshift.env'
+      path: 'config/openshift.env'
     });
   } else if (process.env.ENV == "Azure") {
     require('dotenv').config({
-      path: 'azure.env'
+      path: 'config/azure.env'
     });
   } else {
     require('dotenv').config({
-      path: 'local.env'
+      path: 'config/local.env'
     });
   }
 
