@@ -12,7 +12,7 @@ This applications is designed to be a traditional '3 tier' application. The pres
 
 ## Working with the project
 
-The app has all of its configuration externalised to make moving it from platform to platfrom easy. This is one of the [12 Factor Apps(https://12factor.net/)] principles.
+The app has all of its configuration externalised to make moving it from platform to platfrom easy. This is one of the [12 Factor Apps](https://12factor.net/) principles.
 
 If you don't already have one, create a `config` directory with a file in it called `run.env`. You will need to supply the following configuration options for the app to function:
 
