@@ -1,27 +1,15 @@
 const initOptions = {};
 
 var pgp = require('pg-promise')(initOptions);
+const fs = require('fs');
+const path = "config/run.env";
 
-if (!process.env.ENVIRONMENT) {
-  console.log("Loading Config from local");
+if (fs.existsSync(path)) {
   require('dotenv').config({
-    path: 'config/local.env'
-  });
-} else if (process.env.ENVIRONMENT == "OpenShift") {
-  console.log("Loading Config from OpenShift");
-  require('dotenv').config({
-    path: 'config/openshift.env'
-  });
-} else if (process.env.ENVIRONMENT == "Azure") {
-  console.log("Loading Config from Azure");
-  require('dotenv').config({
-    path: 'config/azure.env'
+    path: path
   });
 } else {
-  console.log("Loading Config from local");
-  require('dotenv').config({
-    path: 'config/local.env'
-  });
+  console.error("No config supplied. App is unlikely to work. Please define config/run.env");
 }
 
 // Database connection details;
@@ -43,7 +31,6 @@ module.exports.todoModel = (function () {
           completed: todo.completed
         })
         .then(data => {
-          console.log(data.id); // print new user id;
           return (data.id);
         })
         .catch(error => {
