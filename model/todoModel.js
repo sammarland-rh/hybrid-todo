@@ -2,11 +2,12 @@ const initOptions = {};
 
 var pgp = require('pg-promise')(initOptions);
 const fs = require('fs');
-const path = "config/run.env";
+const path = require('path');
+const envPath = "../config/run.env";
 
-if (fs.existsSync(path)) {
+if (fs.existsSync(path.resolve(__dirname, envPath))) {
   require('dotenv').config({
-    path: path
+    path: envPath
   });
 } else {
   console.error("No config supplied. App is unlikely to work. Please define config/run.env");
