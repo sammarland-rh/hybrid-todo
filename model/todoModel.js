@@ -6,6 +6,7 @@ const path = require('path');
 const envPath = "../config/run.env";
 
 if (fs.existsSync(path.resolve(__dirname, envPath))) {
+  console.log("Getting config from "+path.resolve(__dirname, envPath));
   require('dotenv').config({
     path: envPath
   });
