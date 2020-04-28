@@ -8,7 +8,7 @@ const envPath = "../config/run.env";
 if (fs.existsSync(path.resolve(__dirname, envPath))) {
   console.log("Getting config from "+path.resolve(__dirname, envPath));
   require('dotenv').config({
-    path: envPath
+    path: path.resolve(__dirname, envPath)
   });
 } else {
   console.error("No config supplied. App is unlikely to work. Please define config/run.env");
