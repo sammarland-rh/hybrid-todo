@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hybrid-todo-db
+  namespace: hybrid-todo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hybrid-todo-db
+  template:
+    metadata:
+      labels:
+        app: hybrid-todo-db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:11.7
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: todo
+            - name: POSTGRES_USER
+              value: sam
+            - name: POSTGRES_PASSWORD
+              value: Redhat123!
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: "todo-db-storage"
+      nodeName: 10.113.139.88 
+      volumes:
+        - name: todo-db-storage
+          persistentVolumeClaim:
+            claimName: todo-db-claim
