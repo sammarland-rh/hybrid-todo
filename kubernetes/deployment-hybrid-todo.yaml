@@ -1,0 +1,34 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: hybrid-todo-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hybrid-todo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hybrid-todo
+    spec:
+      containers:
+      - name: hybrid-todo
+        image: quay.io/sammarland_rh/hybrid-todo:v3
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+          - name: RUN.ENV
+            valueFrom:
+              configMapKeyRef:
+                name: hybrid-todo-config
+                key: run.env
+        volumeMounts:
+        - mountPath: /opt/app-root/src/config/
+          name: config-volume
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: hybrid-todo-config
+        name: config-volume
