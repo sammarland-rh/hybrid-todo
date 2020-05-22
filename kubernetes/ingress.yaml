@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: todo-ingress
+  namespace: hybrid-todo
+spec:
+  rules:
+  - host: todo.icp.ibm.com
+    http:
+      paths:
+      - backend:
+          serviceName: hybrid-todo-service
+          servicePort: 8080
