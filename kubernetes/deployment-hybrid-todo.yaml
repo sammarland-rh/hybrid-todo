@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hybrid-todo
-        image: image-registry.openshift-image-registry.svc:5000/hybrid-todo/hybrid-todo@sha256:305aad4400d7e2b8facfa1fcb25813038f51d4c5efc6bba4be1d1aa2fe59930e
+        image: quay.io/sammarland_rh/hybrid-todo:v6
         ports:
         - containerPort: 8080
           protocol: TCP
