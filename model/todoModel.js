@@ -6,7 +6,7 @@ const path = require('path');
 const envPath = "../config/run.env";
 
 if (fs.existsSync(path.resolve(__dirname, envPath))) {
-  console.log("Getting config from "+path.resolve(__dirname, envPath));
+  console.log("Getting config from " + path.resolve(__dirname, envPath));
   require('dotenv').config({
     path: path.resolve(__dirname, envPath)
   });
@@ -21,10 +21,11 @@ const cn = {
   database: process.env.DB,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  ssl: {
-    rejectUnauthorized: false,
-  }
 };
+
+if (process.env.SSL) {
+  cn.ssl = {rejectUnauthorized: false};
+}
 
 var db = pgp(cn);
 
