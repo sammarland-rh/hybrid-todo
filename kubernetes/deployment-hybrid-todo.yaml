@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hybrid-todo
-        image: quay.io/sammarland_rh/hybrid-todo:v6
+        image: quay.io/sammarland_rh/hybrid-todo:v7
         ports:
         - containerPort: 8080
           protocol: TCP
