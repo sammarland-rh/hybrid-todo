@@ -1,7 +1,9 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
-  name: todo                           
+  name: todo
+  annotations:
+    apps.open-cluster-management.io/git-path: app                     
   namespace: todo-app
   labels:
     app: todo
