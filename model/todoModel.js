@@ -21,11 +21,10 @@ const cn = {
   database: process.env.DB,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
+  ssl: {rejectUnauthorized: false}
 };
 
-if (process.env.SSL) {
-  cn.ssl = {rejectUnauthorized: false};
-}
+  // cn.ssl = {rejectUnauthorized: false};
 
 var db = pgp(cn);
 
