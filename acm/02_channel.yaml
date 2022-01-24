@@ -1,8 +1,9 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
-  name: todo
+  name: hybrid-todo
   namespace: todo-app
 spec:
   pathname: 'https://github.com/sammarland-rh/hybrid-todo.git'
   type: GitHub
+  
