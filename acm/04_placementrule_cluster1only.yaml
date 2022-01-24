@@ -1,13 +1,13 @@
-# apiVersion: apps.open-cluster-management.io/v1
-# kind: PlacementRule
-# metadata:
-#   annotations:
-#     secretname: hybrid-todo-secret
-#   labels:
-#     app: hybrid-todo
-#   name: prod-only
-#   namespace: todo-app
-# spec:
-#   clusterSelector:
-#     matchLabels:
-#       env: production
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  annotations:
+    secretname: hybrid-todo-secret
+  labels:
+    app: hybrid-todo
+  name: prod-only
+  namespace: todo-app
+spec:
+  clusterSelector:
+    matchLabels:
+      env: production
