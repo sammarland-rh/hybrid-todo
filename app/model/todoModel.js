@@ -24,8 +24,6 @@ const cn = {
   ssl: {rejectUnauthorized: false}
 };
 
-  // cn.ssl = {rejectUnauthorized: false};
-
 var db = pgp(cn);
 
 module.exports.todoModel = (function () {
