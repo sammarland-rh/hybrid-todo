@@ -10,7 +10,6 @@ spec:
         operator: In
         values:
         - todo
-        - hybrid-todo-secret
   componentKinds:
   - group: app.ibm.com/v1alpha1
     kind: Subscription
