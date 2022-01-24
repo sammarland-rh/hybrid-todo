@@ -4,7 +4,6 @@ metadata:
   name: todo
   namespace: todo-app
 spec:
-  host: todo-app.apps.todo-aws-prod.sandbox216.opentlc.com
   to:
     kind: Service
     name: hybrid-todo-service
@@ -12,9 +11,3 @@ spec:
   port:
     targetPort: 3000
   wildcardPolicy: None
-status:
-  ingress:
-    - host: todo-app.apps.todo-aws-prod.sandbox216.opentlc.com
-      routerName: default
-      wildcardPolicy: None
-      routerCanonicalHostname: router-default.apps.todo-aws-prod.sandbox216.opentlc.com
