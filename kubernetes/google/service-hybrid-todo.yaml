@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hybrid-todo-service
+spec:
+  selector:
+    app: hybrid-todo
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 3000

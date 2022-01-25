@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: hybrid-todo-subscription-google
+  annotations:
+    apps.open-cluster-management.io/github-branch: master
+    apps.open-cluster-management.io/github-path: kubernetes/google       
+  namespace: todo-app
+  labels:
+    app: hybrid-todo-google
+spec:
+  channel: todo-app/hybrid-todo
+  placement: 
+    placementRef: 
+      kind: PlacementRule
+      name: prod-only-google  

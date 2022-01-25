@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: hybrid-todo-subscription-aws
+  annotations:
+    apps.open-cluster-management.io/github-branch: master
+    apps.open-cluster-management.io/github-path: kubernetes/aws       
+  namespace: todo-app
+  labels:
+    app: hybrid-todo-aws
+spec:
+  channel: todo-app/hybrid-todo
+  placement: 
+    placementRef: 
+      kind: PlacementRule
+      name: prod-only-aws 
