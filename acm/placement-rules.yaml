@@ -1,0 +1,28 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  annotations:
+    secretname: hybrid-todo-secret
+  labels:
+    app: hybrid-todo-aws
+  name: prod-only-aws
+  namespace: todo-app
+spec:
+  clusterSelector:
+    matchLabels:
+      env: production-aws
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  annotations:
+    secretname: hybrid-todo-secret
+  labels:
+    app: hybrid-todo-google
+  name: prod-only-google
+  namespace: todo-app
+spec:
+  clusterSelector:
+    matchLabels:
+      env: production-google

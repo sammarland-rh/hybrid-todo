@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybrid-todo-deployment
+  namespace: hybrid-todo
+spec:
+  selector:
+    matchLabels:
+      app: hybrid-todo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hybrid-todo-aws
+        cloud: google
+    spec:
+      containers:
+      - name: hybrid-todo
+        image: quay.io/sammarland_rh/hybrid-todo:acm-conf-aws
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+      #   volumeMounts:
+      #   - mountPath: /opt/app-root/src/config/
+      #     name: config-volume
+      # volumes:
+      # - secret:
+      #     defaultMode: 420
+      #     secretName: hybrid-todo-secret
+      #   name: config-volume

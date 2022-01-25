@@ -9,4 +9,5 @@ spec:
       - key: app  
         operator: In
         values:
-        - hybrid-todo
+        - hybrid-todo-aws
+        - hybrid-todo-google

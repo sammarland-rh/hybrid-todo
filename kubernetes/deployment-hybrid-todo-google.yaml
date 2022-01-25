@@ -11,11 +11,12 @@ spec:
   template:
     metadata:
       labels:
-        app: hybrid-todo
+        app: hybrid-todo-google
+        cloud: google
     spec:
       containers:
       - name: hybrid-todo
-        image: quay.io/sammarland_rh/hybrid-todo:acm-conf
+        image: quay.io/sammarland_rh/hybrid-todo:acm-conf-google
         ports:
         - containerPort: 3000
           protocol: TCP
