@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hybrid-todo-deployment
-  namespace: hybrid-todo
+  namespace: todo-app
 spec:
   selector:
     matchLabels:
@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: hybrid-todo-google
+        app: hybrid-todo
         cloud: google
     spec:
       containers:

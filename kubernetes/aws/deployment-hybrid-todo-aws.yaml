@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: hybrid-todo-aws
+        app: hybrid-todo
         cloud: google
     spec:
       containers:
