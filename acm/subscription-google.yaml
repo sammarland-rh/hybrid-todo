@@ -4,13 +4,13 @@ metadata:
   name: hybrid-todo-subscription-google
   annotations:
     apps.open-cluster-management.io/github-branch: master
-    apps.open-cluster-management.io/github-path: kubernetes/google       
+    apps.open-cluster-management.io/github-path: kubernetes/google
   namespace: todo-app
   labels:
-    app: hybrid-todo-google
+    app: hybrid-todo
 spec:
-  channel: todo-app/hybrid-todo
+  channel: todo-app/hybrid-todo-channel
   placement: 
     placementRef: 
       kind: PlacementRule
-      name: prod-only-google  
+      name: prod-only-google

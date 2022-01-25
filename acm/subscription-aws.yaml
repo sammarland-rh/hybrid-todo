@@ -7,10 +7,10 @@ metadata:
     apps.open-cluster-management.io/github-path: kubernetes/aws       
   namespace: todo-app
   labels:
-    app: hybrid-todo-aws
+    app: hybrid-todo
 spec:
-  channel: todo-app/hybrid-todo
+  channel: todo-app/hybrid-todo-channel
   placement: 
     placementRef: 
       kind: PlacementRule
-      name: prod-only-aws 
+      name: prod-only-aws
