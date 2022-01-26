@@ -16,15 +16,7 @@ spec:
     spec:
       containers:
       - name: hybrid-todo
-        image: quay.io/sammarland_rh/hybrid-todo:acm-conf-aws-font
+        image: quay.io/sammarland_rh/hybrid-todo:acm-conf
         ports:
         - containerPort: 3000
           protocol: TCP
-      #   volumeMounts:
-      #   - mountPath: /opt/app-root/src/config/
-      #     name: config-volume
-      # volumes:
-      # - secret:
-      #     defaultMode: 420
-      #     secretName: hybrid-todo-secret
-      #   name: config-volume
