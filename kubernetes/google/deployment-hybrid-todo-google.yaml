@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hybrid-todo
-        image: quay.io/sammarland_rh/hybrid-todo:acm-conf
+        image: quay.io/sammarland_rh/hybrid-todo:acm-conf-google-font
         ports:
         - containerPort: 3000
           protocol: TCP
